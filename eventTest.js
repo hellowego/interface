@@ -17,6 +17,12 @@ eventEmitter.on('connection', connectHandler);
 // 使用匿名函数绑定 data_received 事件
 eventEmitter.on('data_received', function(){
    console.log('数据接收成功。');
+   
+   //加入延时
+   var milliSeconds = 10000;
+   var startTime = new Date().getTime(); 
+   while (new Date().getTime() < startTime + milliSeconds);
+   console.log('延时完成。');
 });
 
 // 触发 connection 事件 
