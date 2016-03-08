@@ -5,7 +5,22 @@ var config = {
 	port : 8888,
 
 	routers : [{
-			url : '/hello'
+			surl : '/hello',
+			durl : '/hello',
+			host : 'localhost',
+			port : '8081',
+			stype : 'post',
+			dtype : 'post',
+			fields : ['cardno', 'trademoney']
+		},
+		{
+			surl : '/hi',
+			durl : '/hi',
+			host : 'localhost',
+			port : '8081',
+			stype : 'post',
+			dtype : 'post',
+			fields : ['cardno', 'trademoney']
 		}
 	]
 }

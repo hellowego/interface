@@ -3,6 +3,16 @@ var express = require('express');
 var app = express();
 var config = require('./config');
 
+var bodyParser = require('body-parser');
+
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({
+		extended : true
+	})); // for parsing application/x-www-form-urlencoded
+
+
+
 // 读取参数
 // 服务端口
 var port = config.port;
@@ -14,33 +24,31 @@ app.get('/', function (req, res) {
 	res.send('Hello World');
 })
 
-app.get('/hello', function (req, res) {
-	res.send('Hello ');
-})
+// 
+function mysend(data){
+	return data;
+}
+
 
 //  POST 请求
 app.post('/', function (req, res) {
-	console.log("主页 POST 请求");
-	res.send('Hello POST');
+	
+	recvMsg = req.body;
+	console.log("主页 接受到 POST 请求, %s", recvMsg.first_name);
+	sendmsg = mysend(recvMsg);
+	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
+	res.send(recvMsg);
 })
 
+
 function addRouter() {
-	var roule = '/hi';
+	var roule = '/hi/hello';
 	app.get(roule, function (req, res) {
 		res.send(roule);
 	})
 }
 
-app.post('/process_get', function (req, res) {
 
-	// 输出 JSON 格式
-	response = {
-		first_name : req.query.first_name,
-		last_name : req.query.last_name
-	};
-	console.log(response);
-	res.end(JSON.stringify(response));
-})
 
 var server = app.listen(config.port, function () {
 
