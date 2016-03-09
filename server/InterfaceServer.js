@@ -33,9 +33,9 @@ function mysend(data){
 //  POST 请求
 app.post('/', function (req, res) {
 	
-	recvMsg = req.body;
+	var recvMsg = req.body;
 	console.log("主页 接受到 POST 请求, %s", recvMsg.first_name);
-	sendmsg = mysend(recvMsg);
+	var sendmsg = mysend(recvMsg);
 	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
 	res.send(recvMsg);
 })
@@ -43,8 +43,9 @@ app.post('/', function (req, res) {
 
 function addRouter() {
 	var roule = '/hi/hello';
-	app.get(roule, function (req, res) {
-		res.send(roule);
+	app.post(roule, function (req, res) {
+		var sendmsg = mysend(req.body);
+		res.send(sendmsg);
 	})
 }
 
