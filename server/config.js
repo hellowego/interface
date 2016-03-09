@@ -21,6 +21,15 @@ var config = {
 			stype : "post",
 			dtype : "post",
 			fields : ["cardno", "trademoney"]
+		},
+		{
+			surl : "/nihao",
+			durl : "/hi",
+			host : "localhost",
+			port : 8888,
+			stype : "post",
+			dtype : "post",
+			fields : ["cardno", "trademoney"]
 		}
 	]
 }

@@ -3,6 +3,9 @@ var map = require('./util/map');
 
 var name = '{	"first_name" : "hi",	"last_name" : "hello"}';
 
+/**
+ * 从配置文件中解析出路由
+ */
 function routerParse(config) {
 
 	// console.log(config);
@@ -17,7 +20,7 @@ function routerParse(config) {
 
 	for (var key in contact) {
 		if (key == 'port') {
-			console.log('%s, %s ', key, contact[key]);
+			// console.log('%s, %s ', key, contact[key]);
 		}
 		if (key == 'routers') {
 			//console.log('%s, %s ', key, contact[key]);
@@ -25,28 +28,33 @@ function routerParse(config) {
 			for (var i = 0; i < routers.length; i++) {
 
 				routerMap.put(routers[i]['surl'], routers[i]);
-				console.log(routers[i]);
-				for (var elem in routers[i]) {
-					console.log('%s, %s ', elem, routers[i][elem]);
-				}
+				// console.log(routers[i]);
+				// for (var elem in routers[i]) {
+				// console.log('%s, %s ', elem, routers[i][elem]);
+				// }
 			}
 		}
 	}
 
 	// print map
-	console.log('%s, %s', '/hi', routerMap.get('/hi')['fields']);
+	// console.log('%s, %s', '/hi', routerMap.get('/hi')["fields"]);
+
+	return routerMap;
 }
 
-function say(words) {
-	console.log(words);
-}
+// function say(words) {
+// console.log(words);
+// }
 
-function execute(someFunction, value) {
-	someFunction(value);
-}
+// function execute(someFunction, value) {
+// someFunction(value);
+// }
 
-//execute(say, "Hello");
+// execute(say, "Hello");
 
-routerParse(config);
+// routerParse(config);
 
-console.log('hi');
+// console.log('hi');
+
+
+module.exports = routerParse;
