@@ -9,7 +9,6 @@ var app = express();
 var config = require('./config');
 var bodyParser = require('body-parser');
 var routerParse = require('./routerParse');
-var httpClient = require('./client/httpClient');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({
@@ -38,37 +37,41 @@ app.post('/', function (req, res) {
 
 	var recvMsg = req.body;
 	console.log("主页 接受到 POST 请求, %s", recvMsg.first_name);
-	var sendmsg = mysend(recvMsg);
+	var recvMsg = mysend(recvMsg.first_name);
 	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
 	res.send(recvMsg);
 })
 
-/**
- * 校验报文
- */
-function verifyPost(req) {
-	
+function transPost(req) {
+	var route = req.route;
+	var url = route['path'];
+	console.log(url);
+	// 载入路由参数
+	routeParams = routerMap.get(url);
+	// 转发的主机地址
+	host = routeParams['host'];
+	// 转发的主机端口
+	dport = routeParams['port'];
+	// 转发的目的路由
+	durl = routeParams['durl'];
+	// 转发的方式
+	dtype = routeParams['dtype'];
+
+	console.log(routeParams['fields']);
+	var recvMsg = req.body;
+	console.log(recvMsg.first_name);
+	return recvMsg.first_name;
 }
 
 /**
  * 处理post请求
  */
 function dealPost(req, res) {
-	
-	// 获取请求的地址
-	var route = req.route;
-	var url = route['path'];
-	console.log(url);
-	
-	// 载入路由参数
-	routeParams = routerMap.get(url);
-	// http 客户端转发请求
-	var postData = req.body;
-	httpClient.send(postData, routeParams, function (data) {
-		console.log(data);
-		res.send(data);
-	});
-	
+
+	//var sendmsg = '{"retcode: " : "1",	"retmsg" : "ok"}';
+	var sendmsg = 'success';
+
+	res.send(sendmsg);
 }
 
 /**
@@ -86,7 +89,12 @@ function dealGet(req, res) {
  * 添加路由
  */
 function addRouter() {
-	
+	// var roule = '/hi/hello';
+	// app.post(roule, function (req, res) {
+	// var sendmsg = mysend(req.body);
+	// res.send(sendmsg);
+	// })
+
 	var s = "";
 	routerMap.each(function (key, value, index) {
 		s += index + ":" + key + "=" + value + "\n";
@@ -96,6 +104,7 @@ function addRouter() {
 			app.get(value['surl'], dealGet);
 		}
 
+		// console.log(value);
 	});
 
 	console.log(s);
@@ -104,9 +113,6 @@ function addRouter() {
 
 }
 
-/**
- * 建立监听
- */
 var server = app.listen(config.port, function () {
 
 		var host = server.address().address;
