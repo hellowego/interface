@@ -12,8 +12,7 @@ var config = {
 			stype : "post",
 			dtype : "post",
 			fields : ["cardno", "trademoney"]
-		},
-		{
+		}, {
 			surl : "/hi",
 			durl : "/hi",
 			host : "localhost",
@@ -21,8 +20,7 @@ var config = {
 			stype : "get",
 			dtype : "post",
 			fields : ["cardno", "trademoney"]
-		},
-		{
+		}, {
 			surl : "/nihao",
 			durl : "/hi",
 			host : "localhost",
@@ -31,7 +29,28 @@ var config = {
 			dtype : "get",
 			fields : ["cardno", "trademoney"]
 		}
-	]
-}
+	],
+
+	log4js : {
+		"appenders" : [
+			{
+				"type" : "console",
+				"category" : "console"
+			},
+			
+			{
+				"type" : "dateFile",
+				"filename" : "C:/Users/CF/git/nodejs/server/logs", 
+				"pattern" : "debug/yyyyMMddhh.txt", 
+				"absolute" : true, 
+				"alwaysIncludePattern" : true, 
+				"category" : "logInfo" 
+			}
+		],
+		"levels" : {
+			"logInfo" : "DEBUG"
+		} 
+	}
+};
 
 module.exports = config;

@@ -53,7 +53,8 @@ exports.send = function (postData, routeParams, success) {
 		path : durl,
 		method : dtype,
 		headers : {
-			'Content-Type' : 'application/json'
+			'Content-Type' : 'application/json',
+			'charset' : 'UTF-8'
 		}
 	};
 
