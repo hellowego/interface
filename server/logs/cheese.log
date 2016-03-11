@@ -1,0 +1,14 @@
+[2016-03-11 22:35:30.499] [INFO] cheese - 测试日志信息
+[2016-03-11 22:35:30.502] [TRACE] cheese - Entering cheese testing
+[2016-03-11 22:35:30.503] [DEBUG] cheese - Got cheese.
+[2016-03-11 22:35:30.503] [INFO] cheese - Cheese is Gouda.
+[2016-03-11 22:35:30.503] [WARN] cheese - Cheese is quite smelly.
+[2016-03-11 22:35:30.503] [ERROR] cheese - Cheese is too ripe!
+[2016-03-11 22:35:30.504] [FATAL] cheese - Cheese was breeding ground for listeria.
+[2016-03-11 22:37:02.678] [INFO] cheese - 测试日志信息
+[2016-03-11 22:37:02.681] [TRACE] cheese - Entering cheese testing
+[2016-03-11 22:37:02.681] [DEBUG] cheese - Got cheese.
+[2016-03-11 22:37:02.682] [INFO] cheese - Cheese is Gouda.
+[2016-03-11 22:37:02.682] [WARN] cheese - Cheese is quite smelly.
+[2016-03-11 22:37:02.682] [ERROR] cheese - Cheese is too ripe!
+[2016-03-11 22:37:02.682] [FATAL] cheese - Cheese was breeding ground for listeria.

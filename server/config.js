@@ -40,7 +40,7 @@ var config = {
 			
 			{
 				"type" : "dateFile",
-				"filename" : "C:/Users/CF/git/nodejs/server/logs", 
+				"filename" : "logs", 
 				"pattern" : "debug/yyyyMMddhh.txt", 
 				"absolute" : true, 
 				"alwaysIncludePattern" : true, 
