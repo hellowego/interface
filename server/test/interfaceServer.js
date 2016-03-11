@@ -71,7 +71,7 @@ function dealPost(req, res) {
 	//var sendmsg = '{"retcode: " : "1",	"retmsg" : "ok"}';
 	var sendmsg = 'success';
 
-	res.send(sendmsg);
+	res.send(req.body);
 }
 
 /**

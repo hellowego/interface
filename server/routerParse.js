@@ -1,10 +1,15 @@
+/**
+ *
+ * routerParse.js
+ * 从配置文件中解析路由
+ *
+ */
 var config = require('./config');
 var map = require('./util/map');
-
 var name = '{	"first_name" : "hi",	"last_name" : "hello"}';
 
 /**
- * 从配置文件中解析出路由
+ * @param {json} config 配置文件中的路由json对象
  */
 function routerParse(config) {
 
@@ -13,7 +18,6 @@ function routerParse(config) {
 	// console.log(config.routers);
 
 	var routerMap = new map();
-
 	var configstr = JSON.stringify(config);
 	var contact = JSON.parse(configstr);
 	// console.log(configstr);

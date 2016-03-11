@@ -1,7 +1,8 @@
 /**
  *
  * interfaceServer.js
- * 接口服务器
+ * 接口服务器 
+ * 功能：接受get、post请求，转发请求
  *
  */
 var express = require('express');
@@ -33,33 +34,21 @@ function mysend(data) {
 	return data;
 }
 
-//  POST 请求
-app.post('/', function (req, res) {
-
-	var recvMsg = req.body;
-	console.log("主页 接受到 POST 请求, %s", recvMsg.first_name);
-	var sendmsg = mysend(recvMsg);
-	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
-	res.send(recvMsg);
-})
-
 /**
  * 校验报文
  */
-function verifyPost(req) {
-	
-}
+function verifyPost(req) {}
 
 /**
  * 处理post请求
  */
 function dealPost(req, res) {
-	
+
 	// 获取请求的地址
 	var route = req.route;
 	var url = route['path'];
 	console.log(url);
-	
+
 	// 载入路由参数
 	routeParams = routerMap.get(url);
 	// http 客户端转发请求
@@ -68,15 +57,15 @@ function dealPost(req, res) {
 		console.log(data);
 		res.send(data);
 	});
-	
+
 }
 
 /**
  * 处理get请求
  */
 function dealGet(req, res) {
-	var recvMsg = req.body;
-	console.log("主页 接受到 POST 请求, %s", recvMsg.first_name);
+	var recvMsg = req.query;
+	console.log(recvMsg);
 	var sendmsg = mysend(recvMsg);
 	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
 	res.send(recvMsg);
@@ -86,10 +75,8 @@ function dealGet(req, res) {
  * 添加路由
  */
 function addRouter() {
-	
-	var s = "";
+
 	routerMap.each(function (key, value, index) {
-		s += index + ":" + key + "=" + value + "\n";
 		if (value['stype'] == 'post') {
 			app.post(value['surl'], dealPost);
 		} else if (value['stype'] == 'get') {
@@ -97,11 +84,6 @@ function addRouter() {
 		}
 
 	});
-
-	console.log(s);
-
-	console.log('%s, %s', '/hi', routerMap.get('/hi')["fields"]);
-
 }
 
 /**

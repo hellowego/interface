@@ -18,7 +18,7 @@ var config = {
 			durl : "/hi",
 			host : "localhost",
 			port : 8888,
-			stype : "post",
+			stype : "get",
 			dtype : "post",
 			fields : ["cardno", "trademoney"]
 		},
@@ -28,7 +28,7 @@ var config = {
 			host : "localhost",
 			port : 8888,
 			stype : "post",
-			dtype : "post",
+			dtype : "get",
 			fields : ["cardno", "trademoney"]
 		}
 	]
