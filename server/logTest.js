@@ -7,14 +7,9 @@ var log4js = require('log4js');
 // logger.setLevel('INFO');
 
 
-log4js.configure({
-    appenders: [
-        { type: 'console' },
-        { type: 'file', filename: 'logs/cheese.log', category: 'cheese' }
-    ]
-});
+log4js.configure('./config/log4js.json');
 
-var logger = log4js.getLogger('cheese');
+var logger = log4js.getLogger('access');  
 // logger.setLevel('ERROR');
 
 console.log(log4js.configure);

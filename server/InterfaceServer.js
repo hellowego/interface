@@ -11,6 +11,14 @@ var config = require('./config');
 var bodyParser = require('body-parser');
 var routerParse = require('./routerParse');
 var httpClient = require('./client/httpClient');
+var log4js = require('log4js');
+
+
+log4js.configure('./config/log4js.json');
+var log = log4js.getLogger("app");
+
+
+app.use(log4js.connectLogger(log4js.getLogger("http"), { level: 'auto' }));
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({
@@ -53,6 +61,7 @@ function dealPost(req, res) {
 	routeParams = routerMap.get(url);
 	// http 客户端转发请求
 	var postData = req.body;
+	log.info(postData);
 	httpClient.send(postData, routeParams, function (data) {
 		console.log(data);
 		res.send(data);
