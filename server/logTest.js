@@ -1,16 +1,12 @@
-var log4js = require('log4js');
-// var config = require('./config');
+// var log4js = require('log4js');
+// log4js.configure('./config/log4js.json');
+// var logger = log4js.getLogger('access');  
 
-// log4js.configure = config.log4js;
-// console.log(log4js.configure);
-// var logger = log4js.getLogger('logInfo');
-// logger.setLevel('INFO');
+var log = require('./util/logger');
+
+var logger = log.getlog('hi');
 
 
-log4js.configure('./config/log4js.json');
-
-var logger = log4js.getLogger('access');  
-// logger.setLevel('ERROR');
 
 console.log(log4js.configure);
 
