@@ -1,0 +1,7 @@
+[2016-03-15 16:21:07.154] [INFO] app - 测试日志信息
+[2016-03-15 16:21:07.156] [TRACE] app - Entering cheese testing
+[2016-03-15 16:21:07.156] [DEBUG] app - Got cheese.
+[2016-03-15 16:21:07.156] [INFO] app - Cheese is Gouda.
+[2016-03-15 16:21:07.156] [WARN] app - Cheese is quite smelly.
+[2016-03-15 16:21:07.156] [ERROR] app - Cheese is too ripe!
+[2016-03-15 16:21:07.157] [FATAL] app - Cheese was breeding ground for listeria.

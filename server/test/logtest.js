@@ -2,8 +2,9 @@
 // log4js.configure('./config/log4js.json');
 // var logger = log4js.getLogger('access');  
 
-var log = require('./util/logger');
 
+
+var log = require('../util/logger');
 var logger = log;
 
 
