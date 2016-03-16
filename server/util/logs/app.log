@@ -1,6 +1,0 @@
-[2016-03-15 16:15:40.932] [TRACE] app - Entering cheese testing
-[2016-03-15 16:15:40.936] [DEBUG] app - Got cheese.
-[2016-03-15 16:15:40.937] [INFO] app - Cheese is Gouda.
-[2016-03-15 16:15:40.937] [WARN] app - Cheese is quite smelly.
-[2016-03-15 16:15:40.937] [ERROR] app - Cheese is too ripe!
-[2016-03-15 16:15:40.938] [FATAL] app - Cheese was breeding ground for listeria.

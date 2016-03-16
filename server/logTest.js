@@ -2,23 +2,25 @@
 // log4js.configure('./config/log4js.json');
 // var logger = log4js.getLogger('access');  
 
-var log = require('./util/logger');
+var logger = require('./util/logger');
 
-var logger = log;
-
+var logapp = logger('app');
+var loghttp = logger('http');
 
 
 
 function say(words) {
     console.log(words);
-    logger.info("测试日志信息");
-
-    logger.trace('Entering cheese testing');
-    logger.debug('Got cheese.');
-    logger.info('Cheese is Gouda.');
-    logger.warn('Cheese is quite smelly.');
-    logger.error('Cheese is too ripe!');
-    logger.fatal('Cheese was breeding ground for listeria.');
+    logapp.trace('Entering cheese testing');
+    logapp.debug('Got cheese.');
+    logapp.info('Cheese is Gouda.');
+    logapp.warn('Cheese is quite smelly.');
+    logapp.error('Cheese is too ripe!');
+    logapp.fatal('Cheese was breeding ground for listeria.');
+	
+	loghttp.trace('Entering cheese testing');
+    loghttp.debug('Got cheese.');
+    loghttp.info('Cheese is Gouda.');
 
 }
 
