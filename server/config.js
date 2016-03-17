@@ -14,10 +14,10 @@ var config = {
 			fields : ["cardno", "trademoney"]
 		}, {
 			surl : "/hi",
-			durl : "/hi",
+			durl : "/nihao",
 			host : "localhost",
 			port : 8888,
-			stype : "get",
+			stype : "post",
 			dtype : "post",
 			fields : ["cardno", "trademoney"]
 		}, {
@@ -26,7 +26,7 @@ var config = {
 			host : "localhost",
 			port : 8888,
 			stype : "post",
-			dtype : "get",
+			dtype : "post",
 			fields : ["cardno", "trademoney"]
 		}
 	]
