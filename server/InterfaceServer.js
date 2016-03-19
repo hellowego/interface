@@ -34,6 +34,7 @@ var port = config.port;
 var routerMap = routerParse(config);
 
 app.get('/', function (req, res) {
+	console.log('receive from : %s', req.ip)
 	res.send('Hello World');
 })
 
@@ -61,6 +62,7 @@ function dealPost(req, res) {
 	routeParams = routerMap.get(url);
 	// http 客户端转发请求
 	var postData = req.body;
+	log.info('receive from : %s', req.ip)
 	log.info(postData);
 	httpClient.send(postData, routeParams, function (data) {
 		console.log(data);
@@ -77,6 +79,7 @@ function dealGet(req, res) {
 	console.log(recvMsg);
 	var sendmsg = mysend(recvMsg);
 	console.log("主页 接受到 POST 请求 返回信息, %s", sendmsg);
+	log.info('receive from : %s', req.ip)
 	res.send(recvMsg);
 }
 
