@@ -1,0 +1,2 @@
+[2016-03-23 13:50:39.248] [ERROR] http - ::1 - - "GET /favicon.ico HTTP/1.1" 404 24 "http://localhost:8888/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"
+[2016-03-23 13:50:50.918] [ERROR] http - ::ffff:192.168.104.189 - - "GET /favicon.ico HTTP/1.1" 404 24 "http://192.168.104.189:8888/" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36"

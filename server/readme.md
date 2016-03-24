@@ -1,4 +1,5 @@
 依赖的库：
-1. express
-2. log4js
-3. mongodb
+1.  npm install express -g
+2.  npm install log4js -g
+3.  npm install mongodb -g
+4. 	npm install mongoose -g
