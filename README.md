@@ -18,6 +18,7 @@ http服务:
 1. 路由配置文件
 1. 接受get、post请求
 2. post 转发get，post转发post
+
 log4js :
 1. 日志json配置文件
 2. 有三种日志文件：access、app、error， access 记录报文日志，app记录所有日志，error记录异常错误日志
