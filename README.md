@@ -26,11 +26,11 @@ log4js :
 
 ## 待实现的功能
 大模块：
-找一个socketct 第三方库，实现server,client，并提供demo
-找一个webservice 第三方库，实现server,client，并提供demo
-mongoose orm架构
+1. 找一个socketct 第三方库，实现server,client，并提供demo
+2. 找一个webservice 第三方库，实现server,client，并提供demo
+3. mongoose orm架构
 
 小模块：
-package.json 描述包文件，定义依赖的nodejs模块
+1. package.json 描述包文件，定义依赖的nodejs模块
 
 
