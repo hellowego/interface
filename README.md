@@ -28,6 +28,7 @@ log4js :
 大模块：
 1. 找一个socketct 第三方库，实现server,client，并提供demo
 2. 找一个webservice 第三方库，实现server,client，并提供demo
+3. redis内存数据库
 3. mongoose orm架构
 
 小模块：
