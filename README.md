@@ -3,7 +3,7 @@ starfish 是提供服务给第三方使用的接口中心，对外提供socket�
 项目使用了nodejs框架开发，http服务使用express框架，log4js记录日志，数据库使用mongodb，orm使用mongoose。
 
 ## 开发环境
-安装nodejs 下载地址： https://nodejs.org/en/
+安装nodejs 下载地址： https://nodejs.org/en/  
 安装依赖的库：
 1.  npm install express -g
 2.  npm install log4js -g
