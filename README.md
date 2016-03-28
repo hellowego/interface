@@ -20,15 +20,21 @@ log4js :
 1. 日志json配置文件  
 2. 有三种日志文件：access、app、error， access 记录报文日志，app记录所有日志，error记录异常错误日志  
 
+socket模块:  
+1. 实现服务端server demo （ZY）
+
+框架模块:  
+package.json 文件 （CF）
 
 ## 待实现的功能  
 大模块：
-1. 找一个socketct 第三方库，实现server,client，并提供demo  
-2. 找一个webservice 第三方库，实现server,client，并提供demo  
+1. 找一个测试框架，并实现demo  
+2. 找一个webservice 第三方库，实现server端，并提供demo  
 3. redis内存数据库  
 3. mongoose orm架构  
 
+
 小模块：
-1. package.json 描述包文件，定义依赖的nodejs模块  
+4. 实现一个json字符串校验器，如：{"cardno":{"length":5, "number":true, "necessary":true}}，实现length，number, necessary函数，函数放在validator文件夹中
 
 
