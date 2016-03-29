@@ -1,33 +1,23 @@
 {
   "name": "starfish",
   "version": "0.1.0",
-  "description": "接口转发",
-  "main": "InterfaceServer.js",
+  "description": "接口转发平台",
+  "main": "starfish.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "make test"
-  },
-  "repository": "https://github.com/hellowego/interface.git",
+  }, 
   "keywords": [
     "http",
     "socket"
   ],
-  "author": "hellowego",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hellowego/interface/issues"
-  },
-  "homepage": "https://github.com/hellowego/interface#readme",
+  "author": "erhu", 
   "dependencies": {
-	"body-parser":"1.15.0",
-	"cookie-parser":"1.4.1",
+	"body-parser":"1.15.0", 
 	"express":"4.13.4",
-	"log4js":"0.6.33",
-	"mongodb":"2.1.7",
-	"mongoose":"4.4.9",
-	"lodash":"4.6.1",
-	"eventproxy":"0.3.4"
+	"http-proxy" : ">1.3.0",
+	"lodash":"4.6.1"
   }
 }
