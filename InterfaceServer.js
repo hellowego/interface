@@ -13,6 +13,7 @@ var routerParse = require('./routerParse');
 var httpClient = require('./client/httpClient');
 var log4js = require('log4js');
 
+var UserProxy    = require('./proxy').User;
 
 log4js.configure('./config/log4js.json');
 var log = log4js.getLogger("app");
@@ -35,6 +36,20 @@ var routerMap = routerParse(config);
 
 app.get('/', function (req, res) {
 	console.log('receive from : %s', req.ip)
+	
+	console.log('hello '); 
+	loginname = 'hi';
+	passhash = '123456';
+	email = 'hi@hi.com';
+	UserProxy.newAndSave(loginname, loginname, passhash, email, function (err) {
+        if (err) {
+          console.log('hello 1'); 
+        }
+        console.log('hello 2'); 
+      });
+	  
+	 console.log('hello 3'); 
+	 
 	res.send('Hello World');
 })
 

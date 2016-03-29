@@ -1,16 +1,16 @@
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/test', {
-  server: {poolSize: 20}
+  server: {auto_reconnect: true, poolSize: 20}
 }, function (err) {
   if (err) {
-    logger.error('connect to %s error: ', config.db, err.message);
+    console.log('connect to %s error: ', err.message);
     process.exit(1);
   }
 });
 
 
 // models
-require('./visits');
+require('./user');
 
-exports.Visits         = mongoose.model('Visits');
+exports.User         = mongoose.model('User');
