@@ -4,13 +4,13 @@ module.exports  = {
 		{ 
 			proxyURI : "/hello",
 			port: 8801,
-			targetURI : "http://localhost:9000/hello",  
+			targetURI : "http://localhost:8888/hello",  
 			fields : ["cardno", "trademoney"]
 		} ,
 		{ 
 			proxyURI : "/hi",
 			port: 8802,
-			targetURI : "http://localhost:9000/hello",  
+			targetURI : "http://localhost:8888/hello",  
 			fields : ["cardno", "trademoney"]
 		} 
 	]

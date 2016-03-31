@@ -1,3 +1,10 @@
+/**
+ *
+ * index.js
+ * 封装models
+ * 功能：
+ *
+ */
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/test', {
@@ -12,5 +19,7 @@ mongoose.connect('mongodb://localhost:27017/test', {
 
 // models
 require('./user');
+require('./message');
 
 exports.User         = mongoose.model('User');
+exports.Message      = mongoose.model('Message');
