@@ -11,7 +11,7 @@ function starfish(){
 	self.socketProxyServers =[];
 	self.soapProxyServers = [];
 	
-	_.map(config.routers, 'port').forEach(function(port) {
+	_.map(config.routers, 'proxyPort').forEach(function(port) {
 		console.log("create proxy server listening on port" + port.toString());
 		self.httpProxyServers.push(http.createServer(httpProxyHandler.requestHandler).listen(port));
 	});
