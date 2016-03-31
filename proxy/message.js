@@ -35,9 +35,9 @@ exports.getMessageByOrigDomain = function (origDomain, callback) {
  * @param {String} errcode 报文处理结果编码
  * @param {String} errmsg 报文处理结果信息
  */
-exports.newAndSave = function (ObjectId, ip, origDomain, msg, errcode, errmsg, callback) {
+exports.newAndSave = function ( id, ip, origDomain, msg, errcode, errmsg, callback) {
   var message         	= new Message();
-  message._id = ObjectId;
+  message._id = id;
   message.ip        	= ip;
   message.origDomain   	= origDomain;
   message.body       = msg;
@@ -46,6 +46,8 @@ exports.newAndSave = function (ObjectId, ip, origDomain, msg, errcode, errmsg, c
   // message.errcode       = errcode;
   // message.errmsg       	= errmsg;
   message.save(callback);
+
+  
 };
 
 exports.updateRet = function (errcode, errmsg, callback) {

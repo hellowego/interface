@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var Schema    = mongoose.Schema;
 
 var MessageSchema = new Schema({
-	_id : {type: mongoose.Schema.Types.ObjectId},
+	// _id : {type: mongoose.Schema.Types.ObjectId},
   ip: { type: String},
   origDomain: { type: String},
   body: { type: String},  
