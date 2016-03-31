@@ -2,15 +2,19 @@
 module.exports  = { 
 	routers : [
 		{ 
-			proxyURI : "/hello",
-			port: 8801,
-			targetURI : "http://localhost:8888/hello",  
+			proxyPath : "/hello",
+			proxyPort: 8801,
+			targetPath : "/hello",  
+			targetHost: "localhost",  
+			targetPort : 9000, 
 			fields : ["cardno", "trademoney"]
 		} ,
 		{ 
-			proxyURI : "/hi",
-			port: 8802,
-			targetURI : "http://localhost:8888/hello",  
+			proxyPath : "/hi",
+			proxyPort: 8802, 
+			targetPath : "/hello",  
+			targetHost: "localhost",  
+			targetPort : 9000, 
 			fields : ["cardno", "trademoney"]
 		} 
 	]
