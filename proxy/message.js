@@ -50,8 +50,15 @@ exports.newAndSave = function ( id, ip, origDomain, msg, errcode, errmsg, callba
   
 };
 
-exports.updateRet = function (errcode, errmsg, callback) {
-	
+exports.updateRet = function (id, errcode, errmsg, callback) {
+	Message.findOne({_id: id}, function(err, msg){
+		if(err || !msg){
+			return callback(err);
+		}
+		
+		msg.errcode = errcode;
+		msg.errmsg = 
+	});
 }
 
 
