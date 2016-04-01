@@ -6,7 +6,7 @@ module.exports  = {
 			proxyPort: 8801,
 			targetPath : "/hello",  
 			targetHost: "localhost",  
-			targetPort : 9000, 
+			targetPort : 8888, 
 			fields : ["cardno", "trademoney"]
 		} ,
 		{ 
@@ -14,7 +14,7 @@ module.exports  = {
 			proxyPort: 8802, 
 			targetPath : "/hello",  
 			targetHost: "localhost",  
-			targetPort : 9000, 
+			targetPort : 8888, 
 			fields : ["cardno", "trademoney"]
 		} 
 	]
