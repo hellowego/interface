@@ -18,7 +18,7 @@ module.exports={
 		"trademoney"]
 	}],
 	"httpServers": [{
-		"url": "/posp/taix/driverinfo",
+		"url": "/hello",
 		"port": 8081,
 		"routeNo": "0001",
 		"fields": {
@@ -39,27 +39,9 @@ module.exports={
 		"des": ""
 	},
 	{
-		"utl": "/posp/taix/signdriver",
-		"port": 8081,
-		"routeNo": "0002",
-		"fields": {
-			"OrigDomain": {
-				"length": 8,
-				"number": 0
-			},
-			"Token": {
-				"length": 32,
-				"number": 0
-			},
-			"CarNo" : {
-				"length": 8,
-				"number": 0
-			},
-			"Time" : {
-				"length": 8,
-				"number": 0
-			}			
-		},
+		"utl": "/hi",
+		"port": 8082,
+		"routeNo": "0001",
 		"status": "1",
 		"des": ""
 	}],
@@ -118,15 +100,8 @@ module.exports={
 	{
 		"no": "0002",
 		"type": "socket",
-		"host": "192.168.128.207",
-		"port": 9988,
-		"fields": {
-			"prefix" : "123",
-			"OrigDomain" : "",
-			"Token" : "",
-			"CarNo" : "",
-			"Time" : ""
-		},
+		"host": "0.0.0.0",
+		"port": 9092,
 		"status": "1",
 		"des": ""
 	}]

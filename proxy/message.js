@@ -57,8 +57,8 @@ exports.updateRet = function (id, errcode, errmsg, callback) {
 		}
 		
 		msg.errcode = errcode;
-		msg.errmsg = 
+		// msg.errmsg = 
 	});
-}
+};
 
 
