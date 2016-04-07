@@ -112,6 +112,10 @@ module.exports={
 			"Token" : "",
 			"DriverEmployeeNo" : ""
 		},
+		"response" : {
+			"errcode" : "0",
+			"errmsg" : "success"
+		},
 		"status": "1",
 		"des": ""
 	},
@@ -129,5 +133,21 @@ module.exports={
 		},
 		"status": "1",
 		"des": ""
+	}],
+	"response" : [{
+		"no" : "0001",
+		"type" : "json",
+		"fields" : {
+			"errcode" : "0",
+			"errmsg" : "success"
+		}
+	},
+	{
+		"no" : "0002",
+		"type" : "text",
+		"fields" : {
+			"errcode" : [1,2],
+			"errmsg" : [3,10]
+		}
 	}]
 };

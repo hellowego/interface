@@ -18,7 +18,7 @@ module.exports={
 		"trademoney"]
 	}],
 	"httpServers": [{
-		"url": "/hello",
+		"url": "/posp/taix/driverinfo",
 		"port": 8081,
 		"routeNo": "0001",
 		"fields": {
@@ -39,9 +39,27 @@ module.exports={
 		"des": ""
 	},
 	{
-		"utl": "/hi",
-		"port": 8082,
-		"routeNo": "0001",
+		"utl": "/posp/taix/signdriver",
+		"port": 8081,
+		"routeNo": "0002",
+		"fields": {
+			"OrigDomain": {
+				"length": 8,
+				"number": 0
+			},
+			"Token": {
+				"length": 32,
+				"number": 0
+			},
+			"CarNo" : {
+				"length": 8,
+				"number": 0
+			},
+			"Time" : {
+				"length": 8,
+				"number": 0
+			}			
+		},
 		"status": "1",
 		"des": ""
 	}],
@@ -94,15 +112,42 @@ module.exports={
 			"Token" : "",
 			"DriverEmployeeNo" : ""
 		},
+		"response" : {
+			"errcode" : "0",
+			"errmsg" : "success"
+		},
 		"status": "1",
 		"des": ""
 	},
 	{
 		"no": "0002",
 		"type": "socket",
-		"host": "0.0.0.0",
-		"port": 9092,
+		"host": "192.168.128.207",
+		"port": 9988,
+		"fields": {
+			"prefix" : "123",
+			"OrigDomain" : "",
+			"Token" : "",
+			"CarNo" : "",
+			"Time" : ""
+		},
 		"status": "1",
 		"des": ""
+	}],
+	"response" : [{
+		"no" : "0001",
+		"type" : "json",
+		"fields" : {
+			"errcode" : "0",
+			"errmsg" : "success"
+		}
+	},
+	{
+		"no" : "0002",
+		"type" : "text",
+		"fields" : {
+			"errcode" : [1,2],
+			"errmsg" : [3,10]
+		}
 	}]
 };
