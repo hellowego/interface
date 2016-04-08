@@ -1,48 +1,10 @@
-module.exports={
-	"routers": [{
-		"proxyPath": "/hello",
-		"proxyPort": 8081,
-		"targetPath": "/hello",
-		"targetHost": "localhost",
-		"targetPort": 8888,
-		"fields": ["cardno",
-		"trademoney"]
-	},
-	{
-		"proxyPath": "/hi",
-		"proxyPort": 8802,
-		"targetPath": "/hello",
-		"targetHost": "localhost",
-		"targetPort": 8888,
-		"fields": ["cardno",
-		"trademoney"]
-	}],
+module.exports={	
 	"httpServers": [{
-		"url": "/posp/taix/driverinfo",
+		"url": "/posp/taxi/signdriver",
 		"port": 8081,
-		"routeNo": "0001",
-		"fields": {
-			"OrigDomain": {
-				"length": 8,
-				"number": 0
-			},
-			"Token": {
-				"length": 32,
-				"number": 0
-			},
-			"DriverEmployeeNo" : {
-				"length": 8,
-				"number": 0
-			}
-		},
-		"status": "1",
-		"des": ""
-	},
-	{
-		"utl": "/posp/taix/signdriver",
-		"port": 8081,
-		"routeNo": "0002",
-		"fields": {
+		"routeNo": "0101",
+		"responseNo" : "0102",
+		"checkFields": {
 			"OrigDomain": {
 				"length": 8,
 				"number": 0
@@ -59,10 +21,106 @@ module.exports={
 				"length": 8,
 				"number": 0
 			}			
+		},	
+		"status": "1",
+		"des": ""
+	},
+	{
+		"url": "/posp/taxi/driverinfo",
+		"port": 8081,
+		"routeNo": "0201",
+		"responseNo" : "0202",		
+		"checkFields": {
+			"OrigDomain": {
+				"length": 8,
+				"number": 0
+			},
+			"Token": {
+				"length": 32,
+				"number": 0
+			},
+			"DriverEmployeeNo" : {
+				"length": 8,
+				"number": 0
+			}
+		},	
+		"status": "1",
+		"des": ""
+	}],	
+	"routes": [{
+		"no": "0101",
+		"type": "socket",
+		"host": "192.168.128.207",
+		"port": 9988,
+		"fields": {
+			"prefix" : "000096000100000001000000022016040509450011111111111111111111111111111111",
+			"CarNo" : "",
+			"Time" : ""
 		},
+		"responseNo" : "0101",
+		"status": "1",
+		"des": ""
+	},
+	{
+		"no": "0201",
+		"type": "socket",
+		"host": "192.168.128.207",
+		"port": 9988,
+		"fields": {
+			"prefix" : "000092000200000001000000022016040509450011111111111111111111111111111111",
+			"DriverEmployeeNo" : ""
+		},
+		"responseNo" : "0201",
 		"status": "1",
 		"des": ""
 	}],
+	"response" : [{
+		"no" : "0101",
+		"type" : "text",
+		"fields" : {
+			"DriverID": [72,20],
+			"DriverName": [92,20],
+			"DriverEmployeeID": [112,20],
+			"errcode" : [132,4],
+			"errmsg" : [136,50]
+		}
+	},
+	{		
+		"no" : "0102",
+		"type" : "json",
+		"fields" : {
+			"DriverID": "",
+			"DriverName": "",
+			"DriverEmployeeID": "",
+			"errcode" : "",
+			"errmsg" : ""
+		}
+	},
+	{
+		"no" : "0201",
+		"type" : "text",
+		"fields" : {
+			"DriverID": [72,20],
+			"DriverName": [92,20],
+			"DriverEmployeeID": [112,20],
+			"DriverIdentNo": [132,18],
+			"errcode" : [150,4],
+			"errmsg" : [154,50]
+		}
+	},
+	{		
+		"no" : "0202",
+		"type" : "json",
+		"fields" : {
+			"DriverID": "",
+			"DriverName": "",
+			"DriverEmployeeID": "",
+			"DriverIdentNo": "",
+			"errcode" : "",
+			"errmsg" : ""
+		}
+	}
+	],
 	"socketServers": [{
 		"host": "0.0.0.0",
 		"Port": 9091,
@@ -101,53 +159,4 @@ module.exports={
 		"status": "1",
 		"des": ""
 	}],
-	"routes": [{
-		"no": "0001",
-		"type": "socket",
-		"host": "192.168.128.207",
-		"port": 9988,
-		"fields": {
-			"prefix" : "123",
-			"OrigDomain" : "",
-			"Token" : "",
-			"DriverEmployeeNo" : ""
-		},
-		"response" : {
-			"errcode" : "0",
-			"errmsg" : "success"
-		},
-		"status": "1",
-		"des": ""
-	},
-	{
-		"no": "0002",
-		"type": "socket",
-		"host": "192.168.128.207",
-		"port": 9988,
-		"fields": {
-			"prefix" : "123",
-			"OrigDomain" : "",
-			"Token" : "",
-			"CarNo" : "",
-			"Time" : ""
-		},
-		"status": "1",
-		"des": ""
-	}],
-	"response" : [{
-		"no" : "0001",
-		"type" : "json",
-		"fields" : {
-			"errcode" : "0",
-			"errmsg" : "success"
-		}
-	},
-	{
-		"no" : "0002",
-		"type" : "text",
-		"fields" : {
-			"errcode" : [1,2],
-			"errmsg" : [3,10]
-		}
-	}]
 };

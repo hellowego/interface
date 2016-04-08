@@ -1,0 +1,24 @@
+http://localhost:8081/posp/taix/signdriver
+{
+  "OrigDomain": "789",
+  "Token": "456",
+  "CarNo": "9548X     ",
+  "Time": "20160401152951"
+}
+
+post请求
+请求地址：
+http://139.129.131.178/wq/addons/bound/php/msgsend.php
+参数：
+{
+"driverid":"司机工号",
+"ordertime":"订单时间"，
+"ordermoney":"订单金额"
+}
+
+http://localhost:8081/posp/taxi/driverinfo
+{
+  "OrigDomain": "789",
+  "Token": "456",
+  "DriverEmployeeNo": "130013              "
+}
