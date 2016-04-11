@@ -27,5 +27,4 @@ node_modules
 *.zip
 *.ntvs_analysis.dat
 *.njsproj
-
 obj

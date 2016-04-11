@@ -79,10 +79,10 @@ module.exports={
 		"type" : "text",
 		"fields" : {
 			"DriverID": [72,20],
-			"DriverName": [92,20],
-			"DriverEmployeeID": [112,20],
-			"errcode" : [132,4],
-			"errmsg" : [136,50]
+			"DriverName": [92,120],
+			"DriverEmployeeID": [212,20],
+			"errcode" : [232,4],
+			"errmsg" : [236,50]
 		}
 	},
 	{		
@@ -101,11 +101,11 @@ module.exports={
 		"type" : "text",
 		"fields" : {
 			"DriverID": [72,20],
-			"DriverName": [92,20],
-			"DriverEmployeeID": [112,20],
-			"DriverIdentNo": [132,18],
-			"errcode" : [150,4],
-			"errmsg" : [154,50]
+			"DriverName": [92,120],
+			"DriverEmployeeID": [122,20],
+			"DriverIdentNo": [232,18],
+			"errcode" : [250,4],
+			"errmsg" : [254,50]
 		}
 	},
 	{		
@@ -123,7 +123,7 @@ module.exports={
 	],
 	"socketServers": [{
 		"host": "0.0.0.0",
-		"Port": 9091,
+		"port": 9091,
 		"routeNo": "0001",
 		"fields": {
 			"OrigDomain": {
@@ -144,7 +144,7 @@ module.exports={
 	},
 	{
 		"host": "0.0.0.0",
-		"Port": 9092,
+		"port": 9092,
 		"routeNo": "0002",
 		"fields": {
 			"cardno": {

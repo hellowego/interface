@@ -7,7 +7,7 @@
  */
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/test', {
+mongoose.connect('mongodb://192.168.128.171:27017/test', {
   server: {auto_reconnect: true, poolSize: 20}
 }, function (err) {
   if (err) {
