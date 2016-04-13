@@ -101,11 +101,12 @@ module.exports={
 		"type" : "text",
 		"fields" : {
 			"DriverID": [72,20],
-			"DriverName": [92,120],
-			"DriverEmployeeID": [122,20],
-			"DriverIdentNo": [232,18],
-			"errcode" : [250,4],
-			"errmsg" : [254,50]
+			"DriverName": [92,20],
+			"DriverEmployeeID": [112,20],
+			"DriverIdentNo": [132,18],
+			"CarNo": [150,10],
+			"errcode" : [160,4],
+			"errmsg" : [164,50]
 		}
 	},
 	{		
