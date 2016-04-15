@@ -39,7 +39,7 @@ module.exports={
 				"length": 32,
 				"number": 0
 			},
-			"DriverEmployeeNo" : {
+			"DriverEmployeeID" : {
 				"length": 8,
 				"number": 0
 			}
@@ -52,11 +52,12 @@ module.exports={
 		"type": "socket",
 		"host": "192.168.128.207",
 		"port": 9988,
-		"fields": {
-			"prefix" : "000096000100000001000000022016040509450011111111111111111111111111111111",
-			"CarNo" : "",
-			"Time" : ""
-		},
+		"fields": {"CommandType":"0001",
+			"OrigDomain":"WEIXIN",
+			"Token":"123",
+			"CarNo":"",
+			"Time":""
+			},
 		"responseNo" : "0101",
 		"status": "1",
 		"des": ""
@@ -66,23 +67,24 @@ module.exports={
 		"type": "socket",
 		"host": "192.168.128.207",
 		"port": 9988,
-		"fields": {
-			"prefix" : "000092000200000001000000022016040509450011111111111111111111111111111111",
-			"DriverEmployeeNo" : ""
-		},
+		"fields": {"CommandType":"0002",
+			"Token":"123",
+			"OrigDomain":"WEIXIN",
+			"DriverEmployeeID":""
+			},
 		"responseNo" : "0201",
 		"status": "1",
 		"des": ""
 	}],
 	"response" : [{
 		"no" : "0101",
-		"type" : "text",
+		"type" : "json",
 		"fields" : {
 			"DriverID": [72,20],
 			"DriverName": [92,120],
 			"DriverEmployeeID": [212,20],
-			"errcode" : [232,4],
-			"errmsg" : [236,50]
+			"ErrorCode" : [232,4],
+			"ErrorMsg" : [236,50]
 		}
 	},
 	{		
@@ -92,21 +94,20 @@ module.exports={
 			"DriverID": "",
 			"DriverName": "",
 			"DriverEmployeeID": "",
-			"errcode" : "",
-			"errmsg" : ""
+			"ErrorCode" : "",
+			"ErrorMsg" : ""
 		}
 	},
 	{
 		"no" : "0201",
-		"type" : "text",
+		"type" : "json",
 		"fields" : {
-			"DriverID": [72,20],
-			"DriverName": [92,20],
-			"DriverEmployeeID": [112,20],
-			"DriverIdentNo": [132,18],
-			"CarNo": [150,10],
-			"errcode" : [160,4],
-			"errmsg" : [164,50]
+			"DriverID": "",
+			"DriverName": "",
+			"DriverEmployeeID": "",
+			"DriverIdentNo": "",
+			"ErrorCode" : "",
+			"ErrorMsg" : ""
 		}
 	},
 	{		
@@ -117,15 +118,26 @@ module.exports={
 			"DriverName": "",
 			"DriverEmployeeID": "",
 			"DriverIdentNo": "",
-			"errcode" : "",
-			"errmsg" : ""
+			"ErrorCode" : "",
+			"ErrorMsg" : ""
 		}
-	}
+	},
+	{
+		"no" : "xxxx",
+		"type" : "text",
+		"fields" : {
+			"DriverID": [72,20],
+			"DriverName": [92,120],
+			"DriverEmployeeID": [212,20],
+			"ErrorCode" : [232,4],
+			"ErrorMsg" : [236,50]
+		}
+	},
 	],
 	"socketServers": [{
 		"host": "0.0.0.0",
 		"port": 9091,
-		"routeNo": "0001",
+		"routeNo": "0301",
 		"fields": {
 			"OrigDomain": {
 				"length": 8,
@@ -135,7 +147,7 @@ module.exports={
 				"length": 32,
 				"number": 0
 			},
-			"DriverEmployeeNo" : {
+			"DriverEmployeeID" : {
 				"length": 8,
 				"number": 0
 			}
@@ -146,7 +158,7 @@ module.exports={
 	{
 		"host": "0.0.0.0",
 		"port": 9092,
-		"routeNo": "0002",
+		"routeNo": "0302",
 		"fields": {
 			"cardno": {
 				"length": 16,
