@@ -75,6 +75,22 @@ module.exports={
 		"responseNo" : "0201",
 		"status": "1",
 		"des": ""
+	},
+	{
+		"no": "0301",
+		"type": "http",
+		"host": "139.129.131.178",
+		"port": 80,
+		"url": "/wq/addons/bound/php/msgsend.php",
+		"method": "post",
+		"fields": {"CommandType":"0002",
+			"Token":"123",
+			"OrigDomain":"WEIXIN",
+			"DriverEmployeeID":""
+			},
+		"responseNo" : "0201",
+		"status": "1",
+		"des": ""
 	}],
 	"response" : [{
 		"no" : "0101",
@@ -106,6 +122,7 @@ module.exports={
 			"DriverName": "",
 			"DriverEmployeeID": "",
 			"DriverIdentNo": "",
+			"CarNo": "",
 			"ErrorCode" : "",
 			"ErrorMsg" : ""
 		}
@@ -118,6 +135,7 @@ module.exports={
 			"DriverName": "",
 			"DriverEmployeeID": "",
 			"DriverIdentNo": "",
+			"CarNo": "",
 			"ErrorCode" : "",
 			"ErrorMsg" : ""
 		}
@@ -133,10 +151,21 @@ module.exports={
 			"ErrorMsg" : [236,50]
 		}
 	},
+	{
+		"no" : "0301",
+		"type" : "text",
+		"fields" : {
+			"DriverID": [72,20],
+			"DriverName": [92,120],
+			"DriverEmployeeID": [212,20],
+			"ErrorCode" : [232,4],
+			"ErrorMsg" : [236,50]
+		}
+	}
 	],
 	"socketServers": [{
 		"host": "0.0.0.0",
-		"port": 9091,
+		"port": "9091",
 		"routeNo": "0301",
 		"fields": {
 			"OrigDomain": {
@@ -154,22 +183,5 @@ module.exports={
 		},
 		"status": "1",
 		"des": ""
-	},
-	{
-		"host": "0.0.0.0",
-		"port": 9092,
-		"routeNo": "0302",
-		"fields": {
-			"cardno": {
-				"length": 16,
-				"number": 1
-			},
-			"password": {
-				"length": 6,
-				"number": 1
-			}
-		},
-		"status": "1",
-		"des": ""
-	}],
+	}]
 };
