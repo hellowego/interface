@@ -16,6 +16,8 @@ http://139.129.131.178/wq/addons/bound/php/msgsend.php
 "ordermoney":"订单金额"
 }
 
+{"routeNo":"0301","driverid":"0001","ordertime":"20160419","ordermoney":"5000"}
+
 http://localhost:8081/posp/taxi/driverinfo
 {
   "OrigDomain": "789",
