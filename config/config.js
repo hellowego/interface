@@ -7,19 +7,19 @@ module.exports={
 		"checkFields": {
 			"OrigDomain": {
 				"length": 8,
-				"number": 0
+				"type": 0
 			},
 			"Token": {
 				"length": 32,
-				"number": 0
+				"type": 0
 			},
 			"CarNo" : {
 				"length": 8,
-				"number": 0
+				"type": 0
 			},
 			"Time" : {
 				"length": 8,
-				"number": 0
+				"type": 0
 			}			
 		},	
 		"status": "1",
@@ -33,15 +33,15 @@ module.exports={
 		"checkFields": {
 			"OrigDomain": {
 				"length": 8,
-				"number": 0
+				"type": 0
 			},
 			"Token": {
 				"length": 32,
-				"number": 0
+				"type": 0
 			},
 			"DriverEmployeeID" : {
 				"length": 8,
-				"number": 0
+				"type": 0
 			}
 		},	
 		"status": "1",
@@ -167,18 +167,21 @@ module.exports={
 		"host": "0.0.0.0",
 		"port": "9091",
 		"routeNo": "0301",
-		"fields": {
-			"OrigDomain": {
-				"length": 8,
-				"number": 0
+		"checkFields": {
+			"routeNo": {
+				"length": "4",
+				"type": "number",
+				"value": "taxi"
 			},
-			"Token": {
-				"length": 32,
-				"number": 0
+			"driverid": {
+				"type": "string"
 			},
-			"DriverEmployeeID" : {
-				"length": 8,
-				"number": 0
+			"ordertime" : {
+				"length": "8",
+				"type": "number"
+			},
+			"ordermoney" : {				
+				"type": "number"
 			}
 		},
 		"status": "1",
