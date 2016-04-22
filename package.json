@@ -8,24 +8,28 @@
   },
   "scripts": {
     "test": "make test",
-	"start": "node starfish.js"
-  }, 
+    "start": "node starfish.js"
+  },
   "keywords": [
     "http",
     "socket"
   ],
-  "author": ["hellowego","erhu"],  
+  "author": [
+    "hellowego",
+    "erhu"
+  ],
   "dependencies": {
-	"body-parser":"1.15.0",
-	"cookie-parser":"1.4.1",
-	"express":"4.13.4", 
-	"log4js":"0.6.33",
-	"mongodb":"2.1.7",
-	"mongoose":"4.4.9",
-	"lodash":"4.6.1",
-	"eventproxy":"0.3.4",
-	"moment":"2.12.0",
-	"async": "~0.9.0",
-    "async-task-mgr": ">=1.1.0"
+    "async": "~0.9.0",
+    "async-task-mgr": ">=1.1.0",
+    "body-parser": "1.15.0",
+    "cookie-parser": "1.4.1",
+    "eventproxy": "0.3.4",
+    "express": "4.13.4",
+    "lodash": "4.6.1",
+    "log4js": "0.6.33",
+    "moment": "2.12.0",
+    "mongodb": "2.1.7",
+    "mongoose": "4.4.9",
+    "soap-server": "^0.1.0"
   }
 }
