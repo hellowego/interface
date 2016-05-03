@@ -186,7 +186,7 @@ SoapServer.prototype.castArgument = function(inputName, requestArgument, options
 			return Boolean(requestArgument);
 
 		default:
-			return String(requestArgument);
+			return String(requestArgument[0]._);
 	}
 };
 SoapServer.prototype.handleOperationRequest = function(service, soapRequest){

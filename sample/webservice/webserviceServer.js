@@ -3,7 +3,8 @@
 function TestService() {
 }
 TestService.prototype.test1 = function (myArg1, myArg2) {
-    return (Number(myArg1) + Number(myArg2)).toString;
+    var ret = parseInt(myArg1) + parseInt(myArg2);
+    return ret;
 };
 
 var soapServer = new soap.SoapServer();
