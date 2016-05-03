@@ -413,7 +413,22 @@ SoapServer.prototype.getWsdl = function(host, service){
 	if('object' != typeof service || service.constructor.name != 'SoapService')
 		throw 'getWsdl expect service or type SoapService';
 
-	var wsdl = "<?xml version=\"1.0\"?>\n";
+    var wsdl = "<?xml version=\"1.0\"  encoding=\"UTF-8\"?> \n";
+wsdl += '<definitions name="'+ service.name+'"\n';							
+wsdl += ' targetNamespace="http://' + host + '/' + service.name + '.wsdl"   \n' ;
+wsdl += ' xmlns:tns="http://' + host + '/' + service.name + '.wsdl"         \n' ;
+wsdl += ' xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"   \n' ;
+wsdl += ' xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"   \n' ;
+wsdl += ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"        \n' ;
+wsdl += ' xmlns:xsd="http://www.w3.org/2001/XMLSchema"                 \n' ;
+wsdl += ' xmlns:ns="urn:' + service.name +'" \n' ;
+wsdl += ' xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"           \n' ;
+wsdl += ' xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"           \n' ;
+wsdl += ' xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"\n' ;
+wsdl += ' xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"                \n' ;
+wsdl += ' xmlns="http://schemas.xmlsoap.org/wsdl/">                    \n' ;
+    
+/*
     wsdl += '<definitions\n';
 	wsdl += '	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"\n';
 	wsdl += '	xmlns:wsp="http://www.w3.org/ns/ws-policy"\n';
@@ -425,27 +440,42 @@ SoapServer.prototype.getWsdl = function(host, service){
 	wsdl += '	xmlns="http://schemas.xmlsoap.org/wsdl/"\n';
 	wsdl += '	targetNamespace="http://' + this.options.tns + '/"\n';
 	wsdl += '	name="' + service.name + 'Service">\n';
-	
+*/
+    wsdl += '<types> \n';
+    wsdl += '<schema targetNamespace="urn:' + service.name +'" \n';
+    wsdl += 'xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"      \n';
+    wsdl += 'xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"         \n';
+    wsdl += 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"               \n';
+    wsdl += 'xmlns:xsd="http://www.w3.org/2001/XMLSchema"    \n';
+    wsdl += 'xmlns:ns="urn:' + service.name +'"      \n';
+    wsdl += 'xmlns="http://www.w3.org/2001/XMLSchema"     \n';
+    wsdl += 'elementFormDefault="unqualified"      \n';
+    wsdl += 'attributeFormDefault="unqualified">     \n';
+    wsdl += '<import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"/>\n';
+
+
+
+    /*
 	wsdl += '	<types>\n';
 	wsdl += '		<xsd:schema version="1.0" targetNamespace="http://' + this.options.tns + '/">\n';
-	
+	*/
 	var objects = service.getObjects();
 	for(var objectTypeName in objects){
 		var object = objects[objectTypeName];
 
-		wsdl += '			<xsd:element name="' + objectTypeName + '" type="tns:' + objectTypeName + '" />\n';
-		wsdl += '			<xsd:complexType name="' + objectTypeName + '">\n';
-		wsdl += '				<xsd:sequence>\n';
+		//wsdl += '			<xsd:element name="' + objectTypeName + '" type="tns:' + objectTypeName + '" />\n';
+		wsdl += '			<complexType name="' + objectTypeName + '">\n';
+		wsdl += '				<sequence>\n';
 		
 		for(var memberName in object){
 			wsdl += this.getXsdElement(memberName, object[memberName], 5);
 		}
 		
-		wsdl += '				</xsd:sequence>\n';
-		wsdl += '			</xsd:complexType>\n';
+		wsdl += '				</sequence>\n';
+		wsdl += '			</complexType>\n';
 	}
 	
-	wsdl += '		</xsd:schema>\n';
+	wsdl += '		</schema>\n';
 	wsdl += '	</types>\n';
 	
 	var operationName;
@@ -456,20 +486,20 @@ SoapServer.prototype.getWsdl = function(host, service){
 		for(var inputName in operation.inputs){
 			var input = operation.inputs[inputName];
 			if(input.type == 'object'){
-				wsdl += '		<part name="' + inputName + '" element="tns:' + this.getType(input) + '" />\n';
+				wsdl += '	<part name="' + inputName + '" type="tns:' + this.getType(input) + '" />\n';
 			}
 			else{
-				wsdl += '		<part name="' + inputName + '" element="xsd:' + this.getType(input) + '" />\n';
+				wsdl += '	<part name="' + inputName + '" type="xsd:' + this.getType(input) + '" />\n';
 			}
 		}
 		wsdl += '	</message>\n';
 		
 		wsdl += '	<message name="' + operationName + 'Response">\n';
 		if(operation.output.type == 'object'){
-			wsdl += '		<part name="return" element="tns:' + this.getType(operation.output) + '" />\n';
+			wsdl += '		<part name="return" type="tns:' + this.getType(operation.output) + '" />\n';
 		}
 		else{
-			wsdl += '		<part name="return" element="xsd:' + this.getType(operation.output) + '" />\n';
+			wsdl += '		<part name="return" type="xsd:' + this.getType(operation.output) + '" />\n';
 		}
 		wsdl += '	</message>\n';
 	
@@ -480,32 +510,45 @@ SoapServer.prototype.getWsdl = function(host, service){
 		var operation = service.getOperation(operationName);
 		
 		wsdl += '		<operation name="' + operationName + '">\n';
-		wsdl += '			<input wsam:Action="' + operationName + '" message="tns:' + operationName + '" />\n';
+		/*
+        wsdl += '			<input wsam:Action="' + operationName + '" message="tns:' + operationName + '" />\n';
 		wsdl += '			<output wsam:Action="http://' + this.options.tns + '/' + service.name + '/' + operationName + 'Response"\n';
 		wsdl += '				message="tns:' + operationName + 'Response" />\n';
+        */
+        wsdl += '<documentation>Service definition of function  ' + operationName + '</documentation>'
+        wsdl += '			<input  message="tns:' + operationName + '" />\n';
+        wsdl += '			<output message="tns:'  + operationName + 'Response"/>\n';
 		wsdl += '		</operation>\n';
 	}
 	wsdl += '	</portType>\n';
 
 	wsdl += '	<binding name="' + service.name + 'PortBinding" type="tns:' + service.name + '">\n';
-	wsdl += '		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"\n';
+	wsdl += '		<SOAP:binding transport="http://schemas.xmlsoap.org/soap/http" ';
 	wsdl += '			style="rpc" />\n';
 	for(operationName in service.operations){
 		wsdl += '		<operation name="' + operationName + '">\n';
-		wsdl += '			<soap:operation soapAction="' + operationName + '" />\n';
+        wsdl += '			<SOAP:operation style="rpc" soapAction="" />\n';      
+        wsdl += '<input>                                                                                                                \n';
+        wsdl += '   <SOAP:body use="encoded" namespace="urn:' + service.name +'" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/ "/> \n';
+        wsdl += '</input>                                                                                                               \n';
+        wsdl += '<output>                                                                                                               \n';
+        wsdl += '   <SOAP:body use="encoded" namespace="urn:' + service.name +'" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/ "/> \n';
+        wsdl += '</output>																												\n';
+        /*
 		wsdl += '			<input name="' + operationName + '">\n';
 		wsdl += '				<soap:body use="literal" />\n';
 		wsdl += '			</input>\n';
 		wsdl += '			<output name="' + operationName + 'Response">\n';
 		wsdl += '				<soap:body use="literal" />\n';
 		wsdl += '			</output>\n';
+         */
 		wsdl += '		</operation>\n';
 	}
 	wsdl += '	</binding>\n';
 	
-	wsdl += '	<service name="' + service.name + 'Service">\n';
-	wsdl += '		<port name="' + service.name + 'Port" binding="tns:' + service.name + 'PortBinding">\n';
-	wsdl += '			<soap:address location="http://' + host + '/' + service.name + '" />\n';
+	wsdl += '	<service name="' + service.name + '">\n';
+	wsdl += '		<port name="' + service.name + 'Port" binding="tns:' + service.name + '">\n';
+	wsdl += '			<SOAP:address location="http://' + host + '/' + service.name + '" />\n';
 	wsdl += '		</port>\n';
 	wsdl += '	</service>\n';
 	wsdl += '</definitions>';
