@@ -17,6 +17,8 @@ http://139.129.131.178/wq/addons/bound/php/msgsend.php
 }
 
 {"routeNo":"0301","driverid":"0001","ordertime":"20160419","ordermoney":"5000"}
+可用的报文：
+{"routeNo":"0301","driverid":"8578","ordertime":"2015-06-08 13:09:08","ordermoney":"3456"}
 
 http://localhost:8081/posp/taxi/driverinfo
 {

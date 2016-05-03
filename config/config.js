@@ -83,10 +83,10 @@ module.exports={
 		"port": 80,
 		"url": "/wq/addons/bound/php/msgsend.php",
 		"method": "post",
-		"fields": {"CommandType":"0002",
-			"Token":"123",
-			"OrigDomain":"WEIXIN",
-			"DriverEmployeeID":""
+		"fields": {
+			"driverid":"",
+			"ordertime":"",
+			"ordermoney":""
 			},
 		"responseNo" : "0201",
 		"status": "1",
@@ -153,13 +153,11 @@ module.exports={
 	},
 	{
 		"no" : "0301",
-		"type" : "text",
+		"type" : "json",
 		"fields" : {
-			"DriverID": [72,20],
-			"DriverName": [92,120],
-			"DriverEmployeeID": [212,20],
-			"ErrorCode" : [232,4],
-			"ErrorMsg" : [236,50]
+			"driverid":"",
+			"ordertime":"",
+			"ordermoney":""
 		}
 	}
 	],
@@ -176,9 +174,7 @@ module.exports={
 			"driverid": {
 				"type": "string"
 			},
-			"ordertime" : {
-				"length": "8",
-				"type": "number"
+			"ordertime" : {				
 			},
 			"ordermoney" : {				
 				"type": "number"
