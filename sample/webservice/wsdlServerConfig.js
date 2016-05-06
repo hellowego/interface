@@ -1,7 +1,8 @@
 ﻿module.exports = {
-    "webserviceServers": [{
+    "soapServers": [{
             "IP": "127.0.0.1",
-            "port": 8081,
+            "port": 1337,
+            "serviceName" : "webserviceProxy",
             "routeNo": "0101",
             "responseNo" : "0102",
             "checkFields": {
@@ -28,6 +29,7 @@
         {
             "IP": "127.0.0.1",
             "port": 8081,
+            "serviceName" : "webserviceProxy2",
             "routeNo": "0201",
             "responseNo" : "0202",		
             "checkFields": {
