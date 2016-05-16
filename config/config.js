@@ -50,7 +50,7 @@ module.exports={
 	"routes": [{
 		"no": "0101",
 		"type": "socket",
-		"host": "192.168.128.207",
+		"host": "127.0.0.1",
 		"port": 9988,
 		"fields": {"CommandType":"0001",
 			"OrigDomain":"WEIXIN",
@@ -65,7 +65,7 @@ module.exports={
 	{
 		"no": "0201",
 		"type": "socket",
-		"host": "192.168.128.207",
+		"host": "127.0.0.1",
 		"port": 9988,
 		"fields": {"CommandType":"0002",
 			"Token":"123",
